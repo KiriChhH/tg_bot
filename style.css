@@ -5,7 +5,7 @@ body,html {
     min-height: 100%
 }
 
-.article .article_content, .article .article_content, .article .article_header {
+.article .article_content, .article .article_header {
     font-family: CustomSerif,Georgia,Cambria,'Times New Roman',serif;
     font-weight: 400;
     font-style: normal;
@@ -27,13 +27,10 @@ body,html {
 
 .article .article_header {
     display: block;
+     word-wrap: break-word;
 }
 
-.article_header {
-    word-wrap: break-word;
-}
-
-.article .article_content aside {
+aside {
     font-family: CustomSerif,Georgia,Cambria,'Times New Roman',serif;
     font-size: 21px;
     color: rgba(0,0,0,.6);
