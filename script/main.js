@@ -82,18 +82,14 @@ const body = document.body;
 const popupContainer = document.querySelector("#popup_container");
 const popupProductList = document.querySelector("#popup_product_list");
 const popupCost = document.querySelector("#popup_cost");
-const order = 0;
-var info = {};
+
 
 
 cart.addEventListener("click", (e) => {
   e.preventDefault();
   popup.classList.add("popup--open");
   body.classList.add("lock");
-  buy_order = popupContainerFill();
-  info = {
-  price: order,
-  }
+  order = popupContainerFill();
 });
 
 
@@ -158,8 +154,11 @@ popupClose.addEventListener("click", (e) => {
   body.classList.remove("lock");
 });
 
-
-var popupOrder = document.getElementById("order");
-popupOrder.addEventListener("click", () => {
-  var jsonData = JSON.stringify(info);
-});
+let tg = window.Telegram.WebbApp;
+let data = {
+  name: "Кирилл",
+  email: "sdsd",
+  phone: "sdsd"
+}
+tg.sendData(JSON.stringify(data));
+tg.close();
