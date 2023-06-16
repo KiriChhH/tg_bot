@@ -63,7 +63,7 @@ dialog {
     cursor: pointer;
     position: fixed; 
     top: 50px;
-    right: 50px;
+    right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
