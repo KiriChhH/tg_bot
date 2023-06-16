@@ -1,172 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>PCStore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script/main.js"></script>
 </head>
 <body>
     <div class="page_wrap">
-        <button class="cart" id="cart">
-            <img class="cart__image" src="files/cart.png"/>
-            <div class="cart__num" id="cart_num">0</div>
-        </button>
-
-        <div class="popup">
-          <div class="popup__container" id="popup_container">
-            <div class="popup__item">
-              <h1 class="popup__title">Оформление заказа</h1>
-            </div>
-            <div class="popup__item" id="popup_product_list">
-              <div class="popup__product">
-                <div class="popup__product-wrap">
-                  <img
-                    src="./files/1gpu"
-                    alt="Apple IPhone 14 Pro Max 256Gb"
-                    class="popup__product-image"
-                  />
-                  <h2 class="popup__product-title">
-                    Смартфон Apple IPhone 14 Pro Max 256Gb, золотой
-                  </h2>
-                </div>
-                <div class="popup__product-wrap">
-                  <div class="popup__product-price">150000</div>
-                  <button class="popup__product-delete">✖</button>
-                </div>
-              </div>
-            </div>
-            <div class="popup__item">
-              <div class="popup__cost">
-                <h2 class="popup__cost-title">Итого</h2>
-                <output class="popup__cost-value" id="popup_cost">150000</output>
-              </div>
-              </div>
-            </div>
-            <button class="popup__close" id="popup_close">✖</button>
-          </div>
-        </div>
-
         <div class="page">
             <main class="article">
                 <article class="article_content">
-                    <h1>PCStore<br></h1>
-                    <address>
-                        <br>
-                    </address>
-                    <figure>
+                    <h1 id="output"></h1>
+                    <a>
                         <img src="files/logo.png">
-                        <figcaption></figcaption>
-                    </figure>
+                    </a>
                     <aside>Видеокарты</aside>
 
-                    <div>
-                        <h3 class="product_title" id="RTX-3060-12GB-33-299₽">RTX 3060 12GB</h3>
-                        <div class="product_price">
-                            33 299₽
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/1gpu.jpg">
+                            </a>
                         </div>
-                        <figure class="product_img">
-                            <img src="files/1gpu.jpg">
-                            <figcaption></figcaption>
-                        </figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=a04d6e27-5e30-4294-af06-2d6ff7836cdb" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
-                    </div>
-                    <div>
-                        <h3 id="GTX-1660-6GB-22-499₽">GTX 1660 6GB 22 499₽</h3>
-                        <figure class="product_img">
-                            <img src="files/2gpu.jpg">
-                            <figcaption></figcaption>
-                        </figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=98fbaa9a-0430-4049-920c-3acc14ee03d2" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
-                    </div>
-                    <div>
-                        <h3 id="RTX-3070-8GB-48-499₽">RTX 3070 8GB 48 499₽</h3>
-                        <figure class="product_img">
-                            <img src="files/3gpu.jpg">
-                            <figcaption></figcaption>
-                        </figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=275c9ab8-4cda-4725-8231-22d6590629af" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
-                    </div>
-                    <div>
-                        <h3 id="RX-6600-8GB-23-999₽">RX 6600 8GB 23 999₽</h3>
-                        <figure class="product_img">
-                            <img src="files/4gpu.jpg">
-                            <figcaption></figcaption>
-                        </figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=1a003418-ae89-496a-bc5e-c5d063643b21" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
-                    </div>
-                    <div>
-                        <h3 id="RX-6800XT-16GB-58-999₽">RX 6800XT 16GB 58 999₽</h3>
-                        <figure class="product_img">
-                            <img src="files/5gpu.jpg">
-                            <figcaption></figcaption></figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=9f8f8fa8-936a-44cb-9c4c-6d75779b3d64" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
+                        <h3 class="card__title" id="RTX-3060-12GB-33-299₽">RTX 3060 12GB</h3>
+                        <button class="open_button" onclick="window.Info_1.show();">Характеристики</button>
+                        <dialog id="Info_1">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">Palit GeForce RTX 3060 Dual (LHR)</p>
+                                    <p class="product-characteristics__spec-title">Частота видеочипа</p>
+                                    <p class="product-characteristics__spec-text">1320 МГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">8 нм</p>
+                                    <p class="product-characteristics__spec-title">Объем видеопамяти</p>
+                                    <p class="product-characteristics__spec-text">12 ГБ</p>
+                                    <p class="product-characteristics__spec-title">Разрядность шины памяти</p>
+                                    <p class="product-characteristics__spec-text">192 бит</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_1.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            33 299
+                        </div>
+                        <button class="card__add">В корзину</button>
                     </div>
 
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/2gpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="GTX-1660-6GB-22-499₽">GTX 1660 6GB</h3>
+                        <button class="open_button" onclick="window.Info_2.show();">Характеристики</button>
+                        <dialog id="Info_2">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">Palit GeForce GTX 1660 Dual</p>
+                                    <p class="product-characteristics__spec-title">Частота видеочипа</p>
+                                    <p class="product-characteristics__spec-text">1530 МГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">12 нм</p>
+                                    <p class="product-characteristics__spec-title">Объем видеопамяти</p>
+                                    <p class="product-characteristics__spec-text">6 ГБ</p>
+                                    <p class="product-characteristics__spec-title">Разрядность шины памяти</p>
+                                    <p class="product-characteristics__spec-text">192 бит</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_2.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            22 499
+                        </div>
+                        <button class="card__add">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/3gpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="RTX-3070-8GB-48-499₽">RTX 3070 8GB</h3>
+                        <button class="open_button" onclick="window.Info_3.show();">Характеристики</button>
+                        <dialog id="Info_3">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">GIGABYTE GeForce RTX 3070</p>
+                                    <p class="product-characteristics__spec-title">Частота видеочипа</p>
+                                    <p class="product-characteristics__spec-text">1500 МГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">8 нм</p>
+                                    <p class="product-characteristics__spec-title">Объем видеопамяти</p>
+                                    <p class="product-characteristics__spec-text">8 ГБ</p>
+                                    <p class="product-characteristics__spec-title">Разрядность шины памяти</p>
+                                    <p class="product-characteristics__spec-text">256 бит</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_3.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            48 499
+                        </div>
+                        <button class="card__add">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/4gpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="RX-6600-8GB-23-999₽">RX 6600 8GB</h3>
+                        <button class="open_button" onclick="window.Info_4.show();">Характеристики</button>
+                        <dialog id="Info_4">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">PowerColor AMD Radeon RX 6600</p>
+                                    <p class="product-characteristics__spec-title">Частота видеочипа</p>
+                                    <p class="product-characteristics__spec-text">1626 МГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">7 нм</p>
+                                    <p class="product-characteristics__spec-title">Объем видеопамяти</p>
+                                    <p class="product-characteristics__spec-text">8  ГБ</p>
+                                    <p class="product-characteristics__spec-title">Разрядность шины памяти</p>
+                                    <p class="product-characteristics__spec-text">128  бит</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_4.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            23 999
+                        </div>
+                        <button class="card__add">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/5gpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="RX-6800XT-16GB-58-999₽">RX 6800XT 16GB</h3>
+                        <button class="open_button" onclick="window.Info_5.show();">Характеристики</button>
+                        <dialog id="Info_5">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">Sapphire AMD Radeon RX 6800 XT</p>
+                                    <p class="product-characteristics__spec-title">Частота видеочипа</p>
+                                    <p class="product-characteristics__spec-text">1825  МГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">7 нм</p>
+                                    <p class="product-characteristics__spec-title">Объем видеопамяти</p>
+                                    <p class="product-characteristics__spec-text">16 ГБ</p>
+                                    <p class="product-characteristics__spec-title">Разрядность шины памяти</p>
+                                    <p class="product-characteristics__spec-text">256  бит</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_5.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            58 999
+                        </div>
+                        <button class="card__add">В корзину</button>
+                    </div>
+
+                    <br>
+
                     <aside>Процессоры</aside>
-                    <div>
-                        <h3 id="Intel-Core-i5-12400F-15-999₽">Intel Core i5-12400F 15 999₽</h3>
-                        <figure class="product_img">
-                            <img src="files/1cpu.jpg">
-                            <figcaption></figcaption>
-                        </figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=bfdf6358-122d-4298-aa36-cb0914134ded" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/1cpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="Intel-Core-i5-12400F-15-999₽">Intel Core i5-12400F</h3>
+                        <button class="open_button" onclick="window.Info_6.show();">Характеристики</button>
+                        <dialog id="Info_6">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">Intel Core i5-12400F</p>
+                                    <p class="product-characteristics__spec-title">Базовая/Максимальная частота</p>
+                                    <p class="product-characteristics__spec-text">2.5/4.4 ГГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">Intel 7</p>
+                                    <p class="product-characteristics__spec-title">Ядра/Потоки</p>
+                                    <p class="product-characteristics__spec-text">6/12</p>
+                                    <p class="product-characteristics__spec-title">L2/L3 кэш</p>
+                                    <p class="product-characteristics__spec-text">7.5/18 МБ</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_6.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            15 999
+                        </div>
+                        <button class="card__add">В корзину</button>
                     </div>
-                    <div>
-                        <h3 id="Ryzen-5-5600X-13-399₽">Ryzen 5 5600X 13 399₽</h3>
-                        <figure class="product_img">
-                            <img src="files/2cpu.jpg">
-                            <figcaption></figcaption>
-                        </figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=d023eaa4-0db0-4f4c-8bda-fd2316bfd325" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/2cpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="Ryzen-5-5600X-13-399₽">Ryzen 5 5600X</h3>
+                        <button class="open_button" onclick="window.Info_7.show();">Характеристики</button>
+                        <dialog id="Info_7">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">AMD Ryzen 5 5600X</p>
+                                    <p class="product-characteristics__spec-title">Базовая/Максимальная частота</p>
+                                    <p class="product-characteristics__spec-text">3.7/4.6 ГГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">TSMC 7FF</p>
+                                    <p class="product-characteristics__spec-title">Ядра/Потоки</p>
+                                    <p class="product-characteristics__spec-text">6/12</p>
+                                    <p class="product-characteristics__spec-title">L2/L3 кэш</p>
+                                    <p class="product-characteristics__spec-text">3/32 МБ</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_7.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            13 399
+                        </div>
+                        <button class="card__add">В корзину</button>
                     </div>
-                    <div>
-                        <h3 id="Ryzen-5-3600-7-799₽">Ryzen 5 3600 7 799₽</h3>
-                        <figure class="product_img">
-                            <img src="files/3cpu.jpg">
-                            <figcaption></figcaption></figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=4452fca2-46de-4435-a6e3-a88bd1425bf9" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/3cpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="Ryzen-5-3600-7-799₽">Ryzen 5 3600</h3>
+                        <button class="open_button" onclick="window.Info_8.show();">Характеристики</button>
+                        <dialog id="Info_8">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">AMD Ryzen 5 3600</p>
+                                    <p class="product-characteristics__spec-title">Базовая/Максимальная частота</p>
+                                    <p class="product-characteristics__spec-text">3.6/4.2 ГГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">TSMC 7FF</p>
+                                    <p class="product-characteristics__spec-title">Ядра/Потоки</p>
+                                    <p class="product-characteristics__spec-text">6/12</p>
+                                    <p class="product-characteristics__spec-title">L2/L3 кэш</p>
+                                    <p class="product-characteristics__spec-text">3/32 МБ</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_8.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            7 799
+                        </div>
+                        <button class="card__add">В корзину</button>
                     </div>
-                    <div>
-                        <h3 id="Intel-Core-i3-12100-10-999₽">Intel Core i3-12100 10 999₽</h3>
-                        <figure class="product_img">
-                            <img src="files/4cpu.jpg">
-                            <figcaption></figcaption>
-                        </figure>
-                        <blockquote>
-                            <button class="product_add">В корзину</button>
-                            <a href="https://oplata.qiwi.com/form?invoiceUid=be2eab42-5a29-4dbb-b6a2-ebcace660d4b" target="_blank">ЗАКАЗАТЬ</a>
-                        </blockquote>
+                    <div class="card">
+                        <div class="card__image">
+                            <a href="#" class="card__img">
+                                <img src="files/3cpu.jpg">
+                            </a>
+                        </div>
+                        <h3 class="card__title" id="Intel-Core-i3-12100-10-999₽">Intel Core i3-12100</h3>
+                        <button class="open_button" onclick="window.Info_9.show();">Характеристики</button>
+                        <dialog id="Info_9">
+                            <form>
+                                <div class="product-characteristics__spec">
+                                    <p class="product-characteristics__spec-title">Модель</p>
+                                    <p class="product-characteristics__spec-text">Intel Core i3-12100</p>
+                                    <p class="product-characteristics__spec-title">Базовая/Максимальная частота</p>
+                                    <p class="product-characteristics__spec-text">3.3/4.3 ГГц</p>
+                                    <p class="product-characteristics__spec-title">Техпроцесс</p>
+                                    <p class="product-characteristics__spec-text">Intel 7</p>
+                                    <p class="product-characteristics__spec-title">Ядра/Потоки</p>
+                                    <p class="product-characteristics__spec-text">4/8</p>
+                                    <p class="product-characteristics__spec-title">L2/L3 кэш</p>
+                                    <p class="product-characteristics__spec-text">5/12 МБ</p>
+                                </div>
+                                <button class="close_button" onclick="window.Info_9.close();">
+                                    Закрыть
+                                </button>
+                            </form>
+                        </dialog>
+                        <div class="card__price">
+                            10 999
+                        </div>
+                        <button class="card__add">В корзину</button>
                     </div>
                 </article>
             </main>
         </div>
     </div>
 
+    <button class="cart" id="cart">
+            <img class="cart__image" src="files/cart.png"/>
+            <div class="cart__num" id="cart_num">0</div>
+    </button>
+    <div class="popup">
+          <div class="popup__container" id="popup_container">
+              <div class="popup__item">
+                  <h1 class="popup__title">Оформление заказа</h1>
+              </div>
+              <div class="popup__item" id="popup_product_list">
+                  <div class="popup__product">
+                      <div class="popup__product-wrap">
+                          <img src="files/1gpu.jpg" class="popup__product-image"/>
+                          <h2 class="popup__product-title">
+                              RTX 3060
+                          </h2>
+                      </div>
+                      <div class="popup__product-wrap">
+                          <div class="popup__product-price">33299</div>
+                          <button class="popup__product-delete">✖</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="popup__item">
+                  <div class="popup__cost">
+                      <h2 class="popup__cost-title">Итого</h2>
+                      <output class="popup__cost-value" id="popup_cost">33299</output>
+                  </div>
+              </div>
+              <button id="order" class="popup__order">
+                  Оформить заказ
+              </button>
+          </div>
+        <button class="popup__close" id="popup_close">✖</button>
+    </div>
+
+    <script src="script/main.js"></script>
 </body>
 </html>

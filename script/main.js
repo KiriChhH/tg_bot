@@ -12,43 +12,9 @@ function toCurrency(num) {
   return format;
 }
 
-const cardAddArr = Array.from(document.querySelectorAll(".product_add"));
-const cartNum = document.querySelector("#cart_num");
-const cart = document.querySelector("#cart");
-
-const popup = document.querySelector(".popup");
-const popupClose = document.querySelector("#popup_close");
-const body = document.body;
-const popupContainer = document.querySelector("#popup_container");
-const popupProductList = document.querySelector("#popup_product_list");
-const popupCost = document.querySelector("#popup_cost");
-
-
-cart.addEventListener("click", (e) => {
-  e.preventDefault();
-  popup.classList.add("popup--open");
-  body.classList.add("lock");
-});
-
-popupClose.addEventListener("click", (e) => {
-  e.preventDefault();
-  popup.classList.remove("popup--open");
-  body.classList.remove("lock");
-});
-
-class Product {
-  imageSrc;
-  name;
-  price;
-  constructor(article_content) {
-    this.imageSrc = article_content.querySelector(".product__image").children[0].src;
-    this.name = article_content.querySelector(".product__title").innerText;
-    this.price = article_content.querySelector(".product_price").innerText;
-  }
-}
-
 const cardAddArr = Array.from(document.querySelectorAll(".card__add"));
 const cartNum = document.querySelector("#cart_num");
+const cart = document.querySelector("#cart");
 
 class Cart {
   products;
@@ -64,6 +30,7 @@ class Cart {
   removeProduct(index) {
     this.products.splice(index, 1);
   }
+
   get cost() {
     const prices = this.products.map((product) => {
       return toNum(product.price);
@@ -72,6 +39,17 @@ class Cart {
       return acc + num;
     }, 0);
     return sum;
+  }
+}
+
+class Product {
+  imageSrc;
+  name;
+  price;
+  constructor(card) {
+    this.imageSrc = card.querySelector(".card__img").children[0].src;
+    this.name = card.querySelector(".card__title").innerText;
+    this.price = card.querySelector(".card__price").innerText;
   }
 }
 
@@ -98,6 +76,27 @@ myCart.products = cardAddArr.forEach((cardAdd) => {
   });
 });
 
+const popup = document.querySelector(".popup");
+const popupClose = document.querySelector("#popup_close");
+const body = document.body;
+const popupContainer = document.querySelector("#popup_container");
+const popupProductList = document.querySelector("#popup_product_list");
+const popupCost = document.querySelector("#popup_cost");
+const order = 0;
+var info = {};
+
+
+cart.addEventListener("click", (e) => {
+  e.preventDefault();
+  popup.classList.add("popup--open");
+  body.classList.add("lock");
+  buy_order = popupContainerFill();
+  info = {
+  price: order,
+  }
+});
+
+
 function popupContainerFill() {
   popupProductList.innerHTML = null;
   const savedCart = JSON.parse(localStorage.getItem("cart"));
@@ -119,6 +118,11 @@ function popupContainerFill() {
     productTitle.classList.add("popup__product-title");
     productTitle.innerHTML = product.name;
 
+    const productPrice = document.createElement("div");
+    productPrice.classList.add("popup__product-price");
+
+    productPrice.innerHTML = toCurrency(toNum(product.price));;
+
     const productDelete = document.createElement("button");
     productDelete.classList.add("popup__product-delete");
     productDelete.innerHTML = "✖";
@@ -127,6 +131,7 @@ function popupContainerFill() {
       myCart.removeProduct(product);
       localStorage.setItem("cart", JSON.stringify(myCart));
       popupContainerFill();
+      cartNum.textContent = cartNum.textContent - 1;
     });
 
     productWrap1.appendChild(productImage);
@@ -143,5 +148,18 @@ function popupContainerFill() {
     popupProductList.appendChild(productHTML);
   });
 
-  popupCost.value = toCurrency(myCart.cost);
+  popupCost.value = myCart.cost;
+  return popupCost.value
 }
+
+popupClose.addEventListener("click", (e) => {
+  e.preventDefault();
+  popup.classList.remove("popup--open");
+  body.classList.remove("lock");
+});
+
+
+var popupOrder = document.getElementById("order");
+popupOrder.addEventListener("click", () => {
+  var jsonData = JSON.stringify(info);
+});
