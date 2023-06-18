@@ -12,6 +12,7 @@ p {
 dialog {
     border-radius: 10px;
     border-width: 1px;
+    width: 340px;
 }
 
 .open_button {
@@ -46,7 +47,7 @@ dialog {
     font-size: 18px;
     text-align: left;
     align-items: center;
-    width: 70vh;
+    width: 340px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

@@ -152,7 +152,6 @@ function popupContainerFill() {
 // tg_script //
 let tg = window.Telegram.WebApp;
 tg.expand();
-
 tg.MainButton.color = "#34C924";
 tg.MainButton.text = "Оформить заказ";
 
