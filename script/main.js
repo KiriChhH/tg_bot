@@ -156,17 +156,18 @@ tg.expand();
 tg.MainButton.setText = "Оформить заказ";
 
 let btn_open = document.getElementById("order");
-let btn_close = document.getElementById("popup_close")
 
 btn_open.addEventListener('click', function(){ 
   tg.MainButton.show()
-});
-
-btn_close.addEventListener('click', function(){ 
-  tg.MainButton.hide()
 });
 
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
   tg.sendData(popupCost.value); 
 });
 
+popupClose.addEventListener("click", (e) => {
+  e.preventDefault();
+  popup.classList.remove("popup--open");
+  body.classList.remove("lock");
+  tg.MainButton.hide()
+});
