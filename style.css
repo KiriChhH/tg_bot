@@ -47,7 +47,7 @@ dialog {
     font-size: 18px;
     text-align: left;
     align-items: center;
-    width: 340px;
+    width: 320px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
