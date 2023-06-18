@@ -56,15 +56,15 @@ dialog {
 }
 
 .cart {
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    background-color: #979aaa;
+    /*background-color: #979aaa;*/
     transition: 0.1s;
     cursor: pointer;
     position: fixed; 
-    top: 50px;
-    right: 5px;
+    top: 20px;
+    right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +79,7 @@ dialog {
 
 .cart__num {
     position: absolute;
-    background-color: rgba(214, 34, 64, 0.9);
+    background-color: #FF0000;
     width: 25px;
     height: 25px;
     border-radius: 50%;
