@@ -154,6 +154,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 tg.MainButton.setText = "Оформить заказ";
+tg.MainButton.color = "#34c924";
 
 let btn_open = document.getElementById("order");
 
