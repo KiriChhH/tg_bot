@@ -12,7 +12,7 @@ p {
 dialog {
     border-radius: 10px;
     border-width: 1px;
-    width: 300px;
+    width: 315px;
 }
 
 .open_button {
@@ -47,7 +47,7 @@ dialog {
     font-size: 18px;
     text-align: left;
     align-items: center;
-    width: 300px;
+    width: 315px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -59,7 +59,6 @@ dialog {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    /*background-color: #979aaa;*/
     transition: 0.1s;
     cursor: pointer;
     position: fixed; 
