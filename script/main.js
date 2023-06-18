@@ -1,3 +1,4 @@
+// site sripts //
 function toNum(str) {
   const num = Number(str.replace(/ /g, ""));
   return num;
@@ -148,17 +149,24 @@ function popupContainerFill() {
   return popupCost.value
 }
 
-popupClose.addEventListener("click", (e) => {
-  e.preventDefault();
-  popup.classList.remove("popup--open");
-  body.classList.remove("lock");
+// tg_script //
+let tg = window.Telegram.WebApp;
+tg.expand();
+
+tg.MainButton.setText = "Оформить заказ";
+
+let btn_open = document.getElementById("order");
+let btn_close = document.getElementById("popup_close")
+
+btn_open.addEventListener('click', function(){ 
+  tg.MainButton.show()
 });
 
-let tg = window.Telegram.WebbApp;
-let data = {
-  name: "Кирилл",
-  email: "sdsd",
-  phone: "sdsd"
-}
-tg.sendData(JSON.stringify(data));
-tg.close();
+btn_close.addEventListener('click', function(){ 
+  tg.MainButton.hide()
+});
+
+Telegram.WebApp.onEvent('mainButtonClicked', function(){
+  tg.sendData(popupCost.value); 
+});
+
